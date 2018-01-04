@@ -22,4 +22,7 @@ author:
 version:             1.0.0
 
 # Gems
-gems: [jekyll-paginate]
+gems:
+  - jekyll-sitemap
+  - jekyll-feed 
+  - jekyll-paginate
