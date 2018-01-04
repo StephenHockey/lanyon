@@ -22,7 +22,5 @@ author:
 version:             1.0.0
 
 # Gems
-gems:
-  - jekyll-sitemap
-  - jekyll-feed 
+plugins:
   - jekyll-paginate
