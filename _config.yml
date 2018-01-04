@@ -23,4 +23,4 @@ version:             1.0.0
 # Gems
 plugins:
   - jekyll-paginate
-  - jekyll-gists
+  - jekyll-gist
