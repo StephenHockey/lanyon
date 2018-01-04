@@ -26,3 +26,5 @@ gems:
   - jekyll-sitemap
   - jekyll-feed 
   - jekyll-paginate
+
+plugins: [jekyll-paginate]
