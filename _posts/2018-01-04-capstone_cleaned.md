@@ -1,3 +1,7 @@
+---
+layout: post
+title: Capstone Project
+---
 
 # Capstone Project - Amazon Review Analysis
 
