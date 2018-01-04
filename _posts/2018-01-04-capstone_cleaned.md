@@ -1,6 +1,7 @@
 ---
-layout: page
-title: Capstone Project
+layout: post
+title: Capstone Project - Amazon Review Analysis
+description: Overview of my Capstone Project
 ---
 
 # Capstone Project - Amazon Review Analysis
