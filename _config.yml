@@ -24,3 +24,5 @@ version:             1.0.0
 plugins:
   - jekyll-paginate
   - jekyll-gist
+
+paginate_path: "page:num" 
