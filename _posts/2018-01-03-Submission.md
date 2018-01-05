@@ -1,3 +1,7 @@
+---
+layout: post
+title: Project 4 - Guessing Subreddit
+---
 
 # Project 4 - Reddit Post Analysis
 
