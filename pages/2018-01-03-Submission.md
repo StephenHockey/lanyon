@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: page
 title: Project 4 - Guessing Subreddit
-<!-- date: 2018-01-03 -->
+date: 2018-01-03
 ---
 
 # Project 4 - Reddit Post Analysis
