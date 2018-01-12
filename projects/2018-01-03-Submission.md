@@ -1,7 +1,8 @@
 ---
 layout: page
-title: Project 4 - Guessing Subreddit
+title: Predicting Subreddits
 date: 2018-01-03
+published: true
 ---
 
 # Project 4 - Reddit Post Analysis
