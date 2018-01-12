@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: notitle
 title: What I've Been Working On
 published: true
 ---
