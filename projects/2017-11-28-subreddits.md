@@ -1,11 +1,10 @@
 ---
 layout: page
 title: Predicting Subreddits
-date: 2018-01-03
+date: 2017-11-28
 published: true
 ---
 
-# Project 4 - Reddit Post Analysis
 
 This dataset contains all of the posts made to a specific set of programming-oriented subreddits in the month of December. We will make a model that attempts to accurately predict which subreddit the post was made to.
 

@@ -2,6 +2,7 @@
 layout: post
 title: Capstone Project - Amazon Review Analysis
 description: Overview of my Capstone Project
+published: false
 ---
 
 # Capstone Project - Amazon Review Analysis

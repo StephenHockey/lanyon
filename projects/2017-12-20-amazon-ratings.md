@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Capstone Project - Amazon Review Analysis
+title: Amazon Review Analysis
 description: Overview of my Capstone Project
 published: true
 ---
 
-# Capstone Project - Amazon Review Analysis
 
 For my Capstone project for the DSI Immersive Program at General Assembly I am going to attempt to predict whether or not an Amazon review gave a 5-star rating based solely off of the text and summary of the review. I will be implementing several different Natural Language Processing techniques in order to do this. Along the way I will also look at what words or sets of words are best for for this prediction, which should have a great business-use of showing what features of a product customers are looking for.
 
