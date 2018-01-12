@@ -3,11 +3,11 @@ layout: page
 title: About Me
 ---
 
-<p class="message">
+<!-- <p class="message">
   Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+</p> -->
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+I am Stephen Hockey, a data scientist located in Toronto, who has recently finished the three month Data Science Immersive bootcamp at General Assembly in NYC. Before that I had 
 
 There are currently two themes built on Poole:
 
