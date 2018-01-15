@@ -7,6 +7,7 @@ permalink:           pretty
 title:               Stephen Hockey
 tagline:             'Data Science Portfolio'
 description:         "A personal website containing the projects I've worked on since starting out as a data scientist."
+footer:              "A personal testing ground."
 url:                 http://stephenhockey.github.io
 baseurl:             ''
 paginate:            1
@@ -15,7 +16,8 @@ paginate:            1
 author:
   name:              Stephen Hockey
   url:               https://stephenhockey.github.io
-  email:             stephen.hockey1@hotmail.com
+  email:             stephenk.hockey@gmail.com
+  footer:            "A personal testing ground."
 
 # Custom vars
 version:             1.0.0
