@@ -8,8 +8,8 @@ For this project, we are using the Ames Housing Dataset that contains over 80 co
 from sklearn.ensemble import AdaBoostClassifier, \
     GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import train_test_split, cross_val_score, \
-    GridSearchCV
+from sklearn.model_selection import train_test_split, \
+    cross_val_score, GridSearchCV
 from sklearn.datasets import load_breast_cancer
 from sklearn.preprocessing import LabelBinarizer, StandardScaler
 
@@ -21,7 +21,8 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 
 from sklearn.linear_model import Ridge, Lasso, ElasticNet, \
-    LinearRegression, LogisticRegression, RidgeCV, LassoCV, ElasticNetCV
+    LinearRegression, LogisticRegression, RidgeCV, LassoCV, \
+    ElasticNetCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import cross_val_score, GridSearchCV, \
@@ -38,7 +39,8 @@ from sklearn.metrics import confusion_matrix, classification_report, \
 
 
 ```python
-training_data = pd.read_csv('/Users/stephenhockey/Downloads/trainingdata.csv')
+training_data = \
+    pd.read_csv('/Users/stephenhockey/Downloads/trainingdata.csv')
 testing_data = pd.read_csv('/Users/stephenhockey/Downloads/test.csv')
 ```
 
@@ -244,7 +246,8 @@ missing_cols
 
 
 
-    ['Lot Frontage', 'Alley', 'Fireplace Qu', 'Pool QC', 'Fence', 'Misc Feature']
+    ['Lot Frontage', 'Alley', 'Fireplace Qu', 'Pool QC', 'Fence', 
+    'Misc Feature']
 
 
 
