@@ -18,7 +18,7 @@ title: About Me
 
 ###### For those three months we had a crash course in machine learning and statistical analysis using many of Pythons very popular libraries (pandas, numpy, scikit learn, statsmodels, etc.), while putting them to use on several different assigned projects. A few of those can be found here, as well as any projects I do on my own using ideas that come to me and publically available datasets!
 
-###### So far I'm loving doing this kind of exploration into data, and learning new things every day about this quickly evolving field. If you would like to share any data science links or tips with me, or to contact me for any reason, I can be reached at stephenk.hockey@gmail.com.
+###### So far I'm loving doing this kind of exploration into data, and learning new things every day about this quickly evolving field. If you would like to share any data science tips or links with me, or to contact me for any reason, I can be reached at stephenk.hockey@gmail.com.
 
 
 
