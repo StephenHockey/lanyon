@@ -2,7 +2,7 @@
 layout: page
 title: Amazon Review Analysis
 description: Overview of my Capstone Project
-published: true
+published: false
 ---
 
 
