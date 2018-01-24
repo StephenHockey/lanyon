@@ -1,8 +1,12 @@
 ---
 layout: post
-title: Capstone Project - Amazon Review Analysis
+title: Amazon Review Analysis
 description: Overview of my Capstone Project
+<<<<<<< HEAD:_posts/2018-01-24-amazon-reviews.md
 published: false
+=======
+published: true
+>>>>>>> f94f904db3af72bc1c6cf7b63e5bcc3db9d7e738:projects/2017-12-20-amazon-reviews.md
 ---
 
 For my Capstone project for the DSI Immersive Program at General Assembly I chose to attempt to predict whether or not an Amazon review gave a five star rating based solely off of the text and summary of the review. I will be implementing several different Natural Language Processing techniques in order to do this. When I have a model I am happy with I will also look at what words or sets of words are best for this prediction, which could have a great business-use of showing what features of a product customers are looking for when rating a product five stars.
@@ -104,110 +108,7 @@ It does not seem like there were very many reviews with a text length of less th
 ### Initial Look at Data
 
 
-```python
-df.head()
-```
-
-
-
-
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>reviewerID</th>
-      <th>asin</th>
-      <th>reviewerName</th>
-      <th>helpful</th>
-      <th>reviewText</th>
-      <th>overall</th>
-      <th>summary</th>
-      <th>unixReviewTime</th>
-      <th>reviewTime</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>AO94DHGC771SJ</td>
-      <td>0528881469</td>
-      <td>amazdnu</td>
-      <td>[0, 0]</td>
-      <td>We got this GPS for my husband who is an (OTR)...</td>
-      <td>5.0</td>
-      <td>Gotta have GPS!</td>
-      <td>1370131200</td>
-      <td>06 2, 2013</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>AMO214LNFCEI4</td>
-      <td>0528881469</td>
-      <td>Amazon Customer</td>
-      <td>[12, 15]</td>
-      <td>I'm a professional OTR truck driver, and I bou...</td>
-      <td>1.0</td>
-      <td>Very Disappointed</td>
-      <td>1290643200</td>
-      <td>11 25, 2010</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>A3N7T0DY83Y4IG</td>
-      <td>0528881469</td>
-      <td>C. A. Freeman</td>
-      <td>[43, 45]</td>
-      <td>Well, what can I say.  I've had this unit in m...</td>
-      <td>3.0</td>
-      <td>1st impression</td>
-      <td>1283990400</td>
-      <td>09 9, 2010</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>A1H8PY3QHMQQA0</td>
-      <td>0528881469</td>
-      <td>Dave M. Shaw "mack dave"</td>
-      <td>[9, 10]</td>
-      <td>Not going to write a long review, even thought...</td>
-      <td>2.0</td>
-      <td>Great grafics, POOR GPS</td>
-      <td>1290556800</td>
-      <td>11 24, 2010</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>A24EV6RXELQZ63</td>
-      <td>0528881469</td>
-      <td>Wayne Smith</td>
-      <td>[0, 0]</td>
-      <td>I've had mine for a year and here's what we go...</td>
-      <td>1.0</td>
-      <td>Major issues, only excuses for support</td>
-      <td>1317254400</td>
-      <td>09 29, 2011</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-The helpful column looks like it could possibly be a good feature, subtracting the second number from the first, which I am quite sure are unhelpful and helpful respectively. However, I want to see how we can do with only using the text columns so we'll drop that also.
+From a quick look at the initial dataframe, the helpful column looks like it could possibly be a good feature, subtracting the second number from the first, which I am quite sure are unhelpful and helpful respectively. However, I want to see how we can do with only using the text columns so we'll drop that also.
 
 
 ```python
@@ -283,7 +184,7 @@ plt.show()
 ```
 
 
-![png](/images/capstone_cleaned_files/capstone_cleaned_16_0.png)
+![png](/images/amazon-reviews_files/amazon-reviews_16_0.png)
 
 
 
@@ -351,7 +252,7 @@ plt.show()
 ```
 
 
-![png](/images/capstone_cleaned_files/capstone_cleaned_21_0.png)
+![png](/images/amazon-reviews_files/amazon-reviews_21_0.png)
 
 
 
@@ -386,14 +287,15 @@ plt.yticks([200000, 400000, 600000, 800000, 1000000, 1100000],
 # plt.ylabel('Occurences', fontsize=20)
 plt.xlabel('Rating', fontsize=20)
 for i in range(3):
-    plt.text(x=bars[i]-0.21, y=values[i]+15000, s=labels[i], size=14)
+    plt.text(x=bars[i]-0.21, y=values[i]+15000, s=labels[i], 
+             size=14)
 plt.title('Multiclass Classification Values', fontsize=20)
 plt.grid(False)
 plt.show()
 ```
 
 
-![png](/images/capstone_cleaned_files/capstone_cleaned_23_0.png)
+![png](/images/amazon-reviews_files/amazon-reviews_23_0.png)
 
 
 We will then use train_test_split to split up our data into training and testing sets in order to test our model on data it has not seen before.
@@ -1060,7 +962,7 @@ plt.show()
 ```
 
 
-![png](/images/capstone_cleaned_files/capstone_cleaned_83_0.png)
+![png](/images/amazon-reviews_files/amazon-reviews_83_0.png)
 
 
 We can see from the classification report that our Binary classification model correctly predicted five star ratings 89% of the time, while only predicting non-five star ratings correclty 69% of the time. This is at least partly due to the model overpredicting five stars, with around 10,000 more predictions of five stars then there were actual ratings.
@@ -1211,7 +1113,7 @@ plt.show()
 ```
 
 
-![png](/images/capstone_cleaned_files/capstone_cleaned_89_0.png)
+![png](/images/amazon-reviews_files/amazon-reviews_89_0.png)
 
 
 Separating out the four star ratings from all of the other non-five star ratings makes our model even better at predicting five star ratings, going from 89% to 93% recall. It also correctly predicts one, two, or three star ratings 74% of the time. However, it completely fails to predict four star ratings, correctly predicting those only 26% of the time, with ~60% of them being misclassified as five stars.
@@ -1307,7 +1209,7 @@ plt.show()
 ```
 
 
-![png](/images/capstone_cleaned_files/capstone_cleaned_98_0.png)
+![png](/images/amazon-reviews_files/amazon-reviews_98_0.png)
 
 
 We can see that of the top 20 strongest predictors of a review's rating, only one of them, 'highly' in the text of a review, is indicative of a five star rating. The rest all pull towards a non-five star rating, with the word 'star' in the text of a review being the strongest predictor by far. I would assume that this means when a person is leaving a negative review, they also like to say what rating they are giving. Since these are almost completely negative coefficients, and I believe that the best information for business-use would be what people are looking for that make it worthy of a five star reivew, we will now look at only the top 20 positive coefficients.
@@ -1875,7 +1777,7 @@ plt.show()
 ```
 
 
-![png](/images/capstone_cleaned_files/capstone_cleaned_117_0.png)
+![png](/images/amazon-reviews_files/amazon-reviews_117_0.png)
 
 
 
@@ -2520,7 +2422,7 @@ plt.show()
 ```
 
 
-![png](/images/capstone_cleaned_files/capstone_cleaned_138_0.png)
+![png](/images/amazon-reviews_files/amazon-reviews_138_0.png)
 
 
 ### Next Steps
