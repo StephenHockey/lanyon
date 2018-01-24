@@ -1,3 +1,8 @@
+---
+layout: page
+title: Real Estate Analysis
+published: true
+---
 
 For this project, we are using the Ames Housing Dataset that contains over 80 columns of different features relating to real estate sold in Ames, Iowa. This includes a sale price and whether a sale was abnormal or not, which we will use as targets for two different models.
 
@@ -328,7 +333,7 @@ For the columns Garage Type, Garage Yr Built, Garage Finish, Garage Qual, and Ga
 
 
 ```python
-training_data.iloc[:, 58:65][(training_data['Garage Type'].notnull())\ 
+training_data.iloc[:, 58:65][(training_data['Garage Type'].notnull())\
                              & (training_data['Garage Qual'].isnull())]
 ```
 

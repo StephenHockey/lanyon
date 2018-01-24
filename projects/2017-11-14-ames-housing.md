@@ -13,8 +13,8 @@ For this project, we are using the Ames Housing Dataset that contains over 80 co
 from sklearn.ensemble import AdaBoostClassifier, \
     GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import train_test_split, cross_val_score, \
-    GridSearchCV
+from sklearn.model_selection import train_test_split, \
+    cross_val_score, GridSearchCV
 from sklearn.datasets import load_breast_cancer
 from sklearn.preprocessing import LabelBinarizer, StandardScaler
 
@@ -26,7 +26,8 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 
 from sklearn.linear_model import Ridge, Lasso, ElasticNet, \
-    LinearRegression, LogisticRegression, RidgeCV, LassoCV, ElasticNetCV
+    LinearRegression, LogisticRegression, RidgeCV, LassoCV, \
+    ElasticNetCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import cross_val_score, GridSearchCV, \
@@ -43,7 +44,8 @@ from sklearn.metrics import confusion_matrix, classification_report, \
 
 
 ```python
-training_data = pd.read_csv('/Users/stephenhockey/Downloads/trainingdata.csv')
+training_data = \
+    pd.read_csv('/Users/stephenhockey/Downloads/trainingdata.csv')
 testing_data = pd.read_csv('/Users/stephenhockey/Downloads/test.csv')
 ```
 
@@ -249,11 +251,12 @@ missing_cols
 
 
 
-    ['Lot Frontage', 'Alley', 'Fireplace Qu', 'Pool QC', 'Fence', 'Misc Feature']
+    ['Lot Frontage', 'Alley', 'Fireplace Qu', 'Pool QC', 'Fence', 
+    'Misc Feature']
 
 
 
-**From the data dictionary that you can find here:** https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data
+**From the data dictionary that you can find here:** [https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
 
 LotFrontage: Linear feet of street connected to property
 
@@ -330,8 +333,8 @@ For the columns Garage Type, Garage Yr Built, Garage Finish, Garage Qual, and Ga
 
 
 ```python
-training_data.iloc[:, 58:65][(training_data['Garage Type'].notnull()) & 
-                             (training_data['Garage Qual'].isnull())]
+training_data.iloc[:, 58:65][(training_data['Garage Type'].notnull())\
+                            & (training_data['Garage Qual'].isnull())]
 ```
 
 
@@ -457,10 +460,10 @@ Again, for the columns Bsmt Qual, Bsmt Cond, Bsmt Exposure, BsmtFin Type 1, and 
 
 ```python
 training_data.iloc[:, 29:36][(training_data['Bsmt Qual'].isnull()) & 
-                    (training_data['Bsmt Exposure'].isnull()) &
-                    (training_data['Bsmt Cond'].isnull()) & 
-                    (training_data['BsmtFin Type 1'].isnull()) &
-                    (training_data['BsmtFin Type 2'].isnull())].shape[0]
+                  (training_data['Bsmt Exposure'].isnull()) &
+                  (training_data['Bsmt Cond'].isnull()) & 
+                  (training_data['BsmtFin Type 1'].isnull()) &
+                  (training_data['BsmtFin Type 2'].isnull())].shape[0]
 ```
 
 
@@ -477,7 +480,7 @@ From this we can see that there are 55 rows where all of the Basement columns wi
 # To look at where the Bsmt Exposure column is null when the 
 # Bsmt Qual has a value, we can do the following:
 training_data.iloc[:, 30:39][(training_data['Bsmt Qual'].notnull()) &
-                             (training_data['Bsmt Exposure'].isnull())]
+                           (training_data['Bsmt Exposure'].isnull())]
 ```
 
 
@@ -589,7 +592,7 @@ training_data.loc[(training_data['Bsmt Qual'].notnull() & \
 
 ```python
 training_data.iloc[:, 30:39][(training_data['Bsmt Qual'].notnull()) & 
-                             (training_data['BsmtFin Type 2'].isnull())]
+                          (training_data['BsmtFin Type 2'].isnull())]
 ```
 
 
@@ -645,7 +648,8 @@ training_data.iloc[:, 30:39][(training_data['Bsmt Qual'].notnull()) &
 
 
 ```python
-(training_data['BsmtFin Type 1'] == training_data['BsmtFin Type 2']).mean()
+(training_data['BsmtFin Type 1'] == \
+    training_data['BsmtFin Type 2']).mean()
 ```
 
 
@@ -682,8 +686,8 @@ training_data['BsmtFin Type 2'].value_counts()
 # 29% of the rows having equal values for each. After looking at the 
 # value counts in each column it becomes quite clear why, with almost 
 # three times as many BsmtFin Type 2s being unfinished compared to the
-# Type 1counterpart. Because of this it is a safe assumption to set the
-# BsmtFin Type 2 value to Unf.
+# Type 1counterpart. Because of this it is a safe assumption to set
+# the BsmtFin Type 2 value to Unf.
 ```
 
 
@@ -744,7 +748,7 @@ training_data[['Bsmt Qual', 'Bsmt Cond', 'Bsmt Exposure', \
 # We can now check if those other 4 basement columns seen above with 
 # one null value in each all occur within the same row.
 
-training_data.iloc[:, 30:39][(training_data['BsmtFin SF 1'].isnull()) & 
+training_data.iloc[:, 30:39][(training_data['BsmtFin SF 1'].isnull())&
                             (training_data['BsmtFin SF 2'].isnull()) &
                             (training_data['Bsmt Unf SF'].isnull()) & 
                             (training_data['Total Bsmt SF'].isnull())]
@@ -838,12 +842,14 @@ Finishing up with the null values in basement columns we have the two null value
 
 
 ```python
-training_data.iloc[:, 30:39][(training_data['Bsmt Full Bath'].isnull()) & 
-                             (training_data['Bsmt Half Bath'].isnull())]
+training_data.iloc[:, 30:39]\
+    [(training_data['Bsmt Full Bath'].isnull()) & 
+    (training_data['Bsmt Half Bath'].isnull())]
 
-# From this we can see that those two columns are null when only in rows 
-# in which the property has no basement. We can therefore impute values 
-# of 0 into both missing Bsmt Full Bath and Bsmt Half Bath rows.
+# From this we can see that those two columns are null when only in 
+# rows in which the property has no basement. We can therefore impute 
+# values of 0 into both missing Bsmt Full Bath and Bsmt Half Bath 
+# rows.
 ```
 
 
@@ -940,8 +946,9 @@ training_data.iloc[:, 25:27].isnull().sum()
 # To double check that all 22 missing values in both Mas Vnr Type and 
 # Mas Vnr Area occur in the same rows.
 
-training_data.iloc[:, 24:26][(training_data['Mas Vnr Type'].isnull()) & 
-                        (training_data['Mas Vnr Area'].isnull())].shape
+training_data.iloc[:, 24:26]\
+    [(training_data['Mas Vnr Type'].isnull()) & 
+    (training_data['Mas Vnr Area'].isnull())].shape
 ```
 
 
@@ -953,11 +960,11 @@ training_data.iloc[:, 24:26][(training_data['Mas Vnr Type'].isnull()) &
 
 
 ```python
-# As this dataset has a habit of mistakenly having null values in place 
-# of 'None' values in applicable columns, I am going to assume that these 
-# 22 properties do not have Masonry Veneers, and will thus change the 
-# missing Mas Vnr Type cells to 'None' and the missing Mas Vnr Area cells
-# to 0.
+# As this dataset has a habit of mistakenly having null values in
+# place of 'None' values in applicable columns, I am going to assume 
+# that these 22 properties do not have Masonry Veneers, and will thus 
+# change the missing Mas Vnr Type cells to 'None' and the missing Mas 
+# Vnr Area cells to 0.
 
 training_data['Mas Vnr Type'].fillna(value='None', inplace=True)
 training_data['Mas Vnr Area'].fillna(value=0, inplace=True)
@@ -995,8 +1002,9 @@ Upon further inspection into the value counts of these two columns, we can see t
 
 
 ```python
-training_data.iloc[:, 25:27][(training_data['Mas Vnr Type'] == 'None') & 
-                             (training_data['Mas Vnr Area'] != 0)]
+training_data.iloc[:, 25:27]\
+    [(training_data['Mas Vnr Type'] == 'None') & 
+    (training_data['Mas Vnr Area'] != 0)]
 ```
 
 
@@ -1094,8 +1102,9 @@ training_data.loc[(training_data['Mas Vnr Type'] == 'None') &
 
 
 ```python
-training_data.iloc[:, 25:27][(training_data['Mas Vnr Type'] != 'None') & 
-                             (training_data['Mas Vnr Area'] == 0)]
+training_data.iloc[:, 25:27]\
+    [(training_data['Mas Vnr Type'] != 'None') & 
+    (training_data['Mas Vnr Area'] == 0)]
 ```
 
 
@@ -1148,7 +1157,7 @@ training_data.iloc[:, 25:27][(training_data['Mas Vnr Type'] != 'None') &
 
 ```python
 # For these three values that are clearly mismatched we will just set 
-# the Mas Vnr Area to the mean area of whichever classification of Mas 
+# the Mas Vnr Area to the mean area of whichever classification of Mas
 # Vnr Type it belongs to.
 
 training_data.groupby('Mas Vnr Type')['Mas Vnr Area'].mean()
@@ -1168,28 +1177,28 @@ training_data.groupby('Mas Vnr Type')['Mas Vnr Area'].mean()
 
 
 ```python
-# Though there won't be any of these cases in the training set as there 
-# are no rows with a Mas Vnr Type of BrkCmn and a Mas Vnr Area of 0, 
-# I'm putting this here so that all my bases are covered when transfering
-# all of these over to testing_data. Each of these three functions will 
-# look for the not-none values in Mas Vnr Type with obviously wrong
-# Mas Vnr Areas of 0, and change it to be the mean area of that specific 
-# classification.
+# Though there won't be any of these cases in the training set as
+# there are no rows with a Mas Vnr Type of BrkCmn and a Mas Vnr 
+# Area of 0, I'm putting this here so that all my bases are covered
+# when transfering all of these over to testing_data. Each of these 
+# three functions will look for the not-none values in Mas Vnr Type 
+# with obviously wrong Mas Vnr Areas of 0, and change it to be the 
+# mean area of that specific classification.
 
 training_data.loc[(training_data['Mas Vnr Type'] == 'BrkCmn') & 
-                  (training_data['Mas Vnr Area'] == 0), 'Mas Vnr Area'] \
-                  = training_data.groupby('Mas Vnr Type')\
-                  ['Mas Vnr Area'].mean()[0].round(0)
+            (training_data['Mas Vnr Area'] == 0), 'Mas Vnr Area'] \
+            = training_data.groupby('Mas Vnr Type')\
+            ['Mas Vnr Area'].mean()[0].round(0)
 
 training_data.loc[(training_data['Mas Vnr Type'] == 'BrkFace') & 
-                  (training_data['Mas Vnr Area'] == 0), 'Mas Vnr Area'] \
-                  = training_data.groupby('Mas Vnr Type')\
-                  ['Mas Vnr Area'].mean()[1].round(0)
+            (training_data['Mas Vnr Area'] == 0), 'Mas Vnr Area'] \
+            = training_data.groupby('Mas Vnr Type')\
+            ['Mas Vnr Area'].mean()[1].round(0)
 
 training_data.loc[(training_data['Mas Vnr Type'] == 'Stone') & 
-                  (training_data['Mas Vnr Area'] == 0), 'Mas Vnr Area'] \
-                  = training_data.groupby('Mas Vnr Type')\
-                  ['Mas Vnr Area'].mean()[3].round(0)
+            (training_data['Mas Vnr Area'] == 0), 'Mas Vnr Area'] \
+            = training_data.groupby('Mas Vnr Type')\
+            ['Mas Vnr Area'].mean()[3].round(0)
 ```
 
 
@@ -1238,7 +1247,8 @@ Columns to drop and why (after closer inspection into data dictionary):
 
 ```python
 # Use Garage Yr Blt and Year Built to make a column with values of 1 
-# if the garage is newer than the house, and 0 if they are the same age.
+# if the garage is newer than the house, and 0 if they are the same 
+# age.
 
 training_data['Garage Newer'] = training_data['Garage Yr Blt'] == \
         training_data['Year Built']
@@ -1251,7 +1261,7 @@ training_data['Garage Newer'] = \
 ```python
 # Drop all of the columns mentioned above.
 
-training_data = training_data.drop(['MS SubClass', 'Lot Shape', 
+training_data = training_data.drop(['MS SubClass', 'Lot Shape', \
         'Land Slope', 'Garage Qual', 'Pool Area', 'Mo Sold', \
         'Garage Yr Blt'], axis=1)
 ```
@@ -1391,12 +1401,12 @@ bin_year_built(training_data)
 
 
 ```python
-# Making a column Remodeled/Additions where True signifies that there has 
-# been no major work done on the house since it was built, and False means
-# that there has been remodeling or additions. Then changing False to 1 
-# and True to 0.
+# Making a column Remodeled/Additions where True signifies that there
+# has been no major work done on the house since it was built, and
+# False means that there has been remodeling or additions. Then changing 
+# False to 1 and True to 0.
 training_data['Remodeled/Additions'] = training_data['Year Built'] \
-                                == training_data['Year Remod/Add']
+        == training_data['Year Remod/Add']
     
 training_data['Remodeled/Additions'] = \
         training_data['Remodeled/Additions'].map({True:0, False:1})
@@ -1405,10 +1415,10 @@ training_data['Remodeled/Additions'] = \
 
 ```python
 # Making a column Multiple Exteriors where 1 means that there are two 
-# different materials used on the exterior of the property and 0 means 
+# different materials used on the exterior of the property and 0 means
 # that there is only one material used.
 training_data['Multiple Exteriors'] = training_data['Exterior 1st'] \
-                                   == training_data['Exterior 2nd']
+        == training_data['Exterior 2nd']
     
 training_data['Multiple Exteriors'] = \
         training_data['Multiple Exteriors'].map({True:0, False:1})
@@ -1416,11 +1426,11 @@ training_data['Multiple Exteriors'] = \
 
 
 ```python
-# Making a column 3+ Floors where 1 means that the property has at least 
-# 3 floors, while 0 means that it has less only 1 or 2.
+# Making a column 3+ Floors where 1 means that the property has at 
+# least 3 floors, while 0 means that it has less only 1 or 2.
 
 training_data['3+ Floors'] = (training_data['1st Flr SF'] + \
-            training_data['2nd Flr SF'] == training_data['Gr Liv Area'])
+        training_data['2nd Flr SF'] == training_data['Gr Liv Area'])
 
 training_data['3+ Floors'] = \
         training_data['3+ Floors'].map({True:0, False:1})
@@ -1428,10 +1438,12 @@ training_data['3+ Floors'] = \
 
 
 ```python
-# Making a column bathrooms which adds up all of the 4 bathroom columns 
-# into one value, making sure to account for the half value of 'half baths'.
+# Making a column bathrooms which adds up all of the 4 bathroom 
+# columns into one value, making sure to account for the half value
+# of 'half baths'.
 training_data['Bathrooms'] = (training_data['Bsmt Half Bath'] + \
-    training_data['Half Bath']) / 2 + (training_data['Bsmt Full Bath'] \
+    training_data['Half Bath']) / 2 \
+    + (training_data['Bsmt Full Bath'] \
     + training_data['Full Bath'])
 ```
 
@@ -1444,7 +1456,8 @@ We can now drop some more columns that we will no longer need since we have crea
 
 
 ```python
-(training_data['Exterior 1st'] == training_data['Exterior 2nd']).mean()
+(training_data['Exterior 1st'] \
+    == training_data['Exterior 2nd']).mean()
 ```
 
 
@@ -1457,8 +1470,8 @@ We can now drop some more columns that we will no longer need since we have crea
 
 ```python
 training_data = training_data.drop(['Year Built', 'Year Remod/Add', \
-        'Exterior 2nd', '1st Flr SF', '2nd Flr SF', 'Bsmt Half Bath', \
-        'Bsmt Full Bath', 'Half Bath', 'Full Bath'], axis=1)
+      'Exterior 2nd', '1st Flr SF', '2nd Flr SF', 'Bsmt Half Bath', \
+      'Bsmt Full Bath', 'Half Bath', 'Full Bath'], axis=1)
 ```
 
 # Make Same Changes for Testing Set
@@ -1479,10 +1492,10 @@ testing_data['Misc Feature'].fillna('No Misc Feature', inplace=True)
 
 ```python
 testing_data.loc[((testing_data['Garage Type'].notnull()) & 
-        (testing_data['Garage Qual'].isnull()) & 
-        (testing_data['Garage Finish'].isnull()) & 
-        (testing_data['Garage Yr Blt'].isnull()) & 
-        (testing_data['Garage Yr Blt'].isnull()), 'Garage Type')] = np.nan 
+    (testing_data['Garage Qual'].isnull()) & 
+    (testing_data['Garage Finish'].isnull()) & 
+    (testing_data['Garage Yr Blt'].isnull()) & 
+    (testing_data['Garage Yr Blt'].isnull()), 'Garage Type')] = np.nan 
 ```
 
 
@@ -1505,20 +1518,23 @@ testing_data['Garage Yr Blt'].fillna('No Garage', inplace=True)
 
 
 ```python
-testing_data.loc[(training_data['Bsmt Qual'].notnull() 
-    & testing_data['Bsmt Exposure'].isnull()), 'Bsmt Exposure'] = 'No'
+testing_data.loc[(training_data['Bsmt Qual'].notnull() &
+    testing_data['Bsmt Exposure'].isnull()), 'Bsmt Exposure'] = 'No'
 ```
 
 
 ```python
 testing_data.loc[(training_data['BsmtFin Type 1'].notnull() & 
-    testing_data['BsmtFin Type 2'].isnull()), 'BsmtFin Type 2'] = 'Unf'
+    testing_data['BsmtFin Type 2'].isnull()), \
+    'BsmtFin Type 2'] = 'Unf'
 ```
 
 
 ```python
-testing_data[['Bsmt Qual', 'Bsmt Cond', 'Bsmt Exposure', 'BsmtFin Type 1', 'BsmtFin Type 2']] = \
-testing_data[['Bsmt Qual', 'Bsmt Cond', 'Bsmt Exposure', 'BsmtFin Type 1', 'BsmtFin Type 2']].fillna('No Basement')
+testing_data[['Bsmt Qual', 'Bsmt Cond', 'Bsmt Exposure', \
+'BsmtFin Type 1', 'BsmtFin Type 2']] = \
+testing_data[['Bsmt Qual', 'Bsmt Cond', 'Bsmt Exposure', \
+'BsmtFin Type 1', 'BsmtFin Type 2']].fillna('No Basement')
 ```
 
 
@@ -1528,28 +1544,28 @@ testing_data.loc[((testing_data['Bsmt Qual'] == 'No Basement') &
             (testing_data['Bsmt Exposure'] == 'No Basement') & 
             (testing_data['BsmtFin Type 1'] == 'No Basement') &
             (testing_data['BsmtFin Type 2'] == 'No Basement'), \
-                                  'BsmtFin SF 1')] = 0
+            'BsmtFin SF 1')] = 0
 
 testing_data.loc[((testing_data['Bsmt Qual'] == 'No Basement') & 
             (testing_data['Bsmt Cond'] == 'No Basement') & 
             (testing_data['Bsmt Exposure'] == 'No Basement') & 
             (testing_data['BsmtFin Type 1'] == 'No Basement') &
             (testing_data['BsmtFin Type 2'] == 'No Basement'), \
-                                  'BsmtFin SF 2')] = 0
+            'BsmtFin SF 2')] = 0
 
 testing_data.loc[((training_data['Bsmt Qual'] == 'No Basement') & 
             (testing_data['Bsmt Cond'] == 'No Basement') &
             (testing_data['Bsmt Exposure'] == 'No Basement') & 
             (testing_data['BsmtFin Type 1'] == 'No Basement') &
             (testing_data['BsmtFin Type 2'] == 'No Basement'), \
-                                  'Bsmt Unf SF')] = 0
+            'Bsmt Unf SF')] = 0
 
 testing_data.loc[((testing_data['Bsmt Qual'] == 'No Basement') & 
-                  (testing_data['Bsmt Cond'] == 'No Basement') &
-                  (testing_data['Bsmt Exposure'] == 'No Basement') & 
-                  (testing_data['BsmtFin Type 1'] == 'No Basement') &
-                  (testing_data['BsmtFin Type 2'] == 'No Basement'), \
-                                  'Total Bsmt SF')] = 0
+            (testing_data['Bsmt Cond'] == 'No Basement') &
+            (testing_data['Bsmt Exposure'] == 'No Basement') & 
+            (testing_data['BsmtFin Type 1'] == 'No Basement') &
+            (testing_data['BsmtFin Type 2'] == 'No Basement'), \
+            'Total Bsmt SF')] = 0
 ```
 
 
@@ -1574,15 +1590,18 @@ testing_data.loc[(testing_data['Mas Vnr Type'] == 'None') &
 ```python
 testing_data.loc[(testing_data['Mas Vnr Type'] == 'BrkCmn') & 
     (testing_data['Mas Vnr Area'] == 0), 'Mas Vnr Area'] = \
-    testing_data.groupby('Mas Vnr Type')['Mas Vnr Area'].mean()[0].round(0)
+    testing_data.groupby('Mas Vnr Type')\
+    ['Mas Vnr Area'].mean()[0].round(0)
 
 testing_data.loc[(testing_data['Mas Vnr Type'] == 'BrkFace') & 
     (testing_data['Mas Vnr Area'] == 0), 'Mas Vnr Area'] = \
-    testing_data.groupby('Mas Vnr Type')['Mas Vnr Area'].mean()[1].round(0)
+    testing_data.groupby('Mas Vnr Type')\
+    ['Mas Vnr Area'].mean()[1].round(0)
 
 testing_data.loc[(testing_data['Mas Vnr Type'] == 'Stone') & 
     (testing_data['Mas Vnr Area'] == 0), 'Mas Vnr Area'] = \
-    testing_data.groupby('Mas Vnr Type')['Mas Vnr Area'].mean()[3].round(0)
+    testing_data.groupby('Mas Vnr Type')\
+    ['Mas Vnr Area'].mean()[3].round(0)
 ```
 
 ### Dropping and Creating Columns
@@ -1591,8 +1610,8 @@ Once again we will just copy the steps we followed when dropping and creating co
 
 
 ```python
-# Before we drop the testing_data Id, we need to extract it into it's own
-# dataframe for purposes of submission to Kaggle later.
+# Before we drop the testing_data Id, we need to extract it into it's 
+# own dataframe for purposes of submission to Kaggle later.
 testid = testing_data['Id']
 testing_data = testing_data.drop(['Id', 'PID'], axis=1)
 ```
@@ -1600,7 +1619,7 @@ testing_data = testing_data.drop(['Id', 'PID'], axis=1)
 
 ```python
 testing_data['Garage Newer'] = testing_data['Garage Yr Blt'] == \
-                               testing_data['Year Built']
+            testing_data['Year Built']
     
 testing_data['Garage Newer'] = \
             testing_data['Garage Newer'].map({True:0, False:1})
@@ -1608,14 +1627,14 @@ testing_data['Garage Newer'] = \
 
 
 ```python
-testing_data = testing_data.drop(['MS SubClass', 'Lot Shape', 
+testing_data = testing_data.drop(['MS SubClass', 'Lot Shape', \
         'Land Slope', 'Garage Qual', 'Pool Area', 'Mo Sold', \
         'Garage Yr Blt'], axis=1)
 ```
 
 
 ```python
-# We already made a function for binning the Year Built column, we can 
+# We already made a function for binning the Year Built column, we can
 # just call it again on testing_data.
 bin_year_built(testing_data)
 ```
@@ -1623,7 +1642,7 @@ bin_year_built(testing_data)
 
 ```python
 testing_data['Remodeled/Additions'] = testing_data['Year Built'] == \
-                                      testing_data['Year Remod/Add']
+            testing_data['Year Remod/Add']
     
 testing_data['Remodeled/Additions'] = \
             testing_data['Remodeled/Additions'].map({True:0, False:1})
@@ -1632,7 +1651,7 @@ testing_data['Remodeled/Additions'] = \
 
 ```python
 testing_data['Multiple Exteriors'] = testing_data['Exterior 1st'] == \
-                                     testing_data['Exterior 2nd']
+            testing_data['Exterior 2nd']
     
 testing_data['Multiple Exteriors'] = \
             testing_data['Multiple Exteriors'].map({True:0, False:1})
@@ -1641,8 +1660,7 @@ testing_data['Multiple Exteriors'] = \
 
 ```python
 testing_data['3+ Floors'] = (testing_data['1st Flr SF'] + 
-                             testing_data['2nd Flr SF'] == \
-                             testing_data['Gr Liv Area'])
+            testing_data['2nd Flr SF'] == testing_data['Gr Liv Area'])
 
 testing_data['3+ Floors'] = \
             testing_data['3+ Floors'].map({True:0, False:1})
@@ -1658,7 +1676,7 @@ testing_data['Bathrooms'] = (testing_data['Bsmt Half Bath'] + \
 
 ```python
 testing_data = testing_data.drop(['Year Built', 'Year Remod/Add', \
-        'Exterior 2nd', '1st Flr SF', '2nd Flr SF', 'Bsmt Half Bath', \
+        'Exterior 2nd', '1st Flr SF', '2nd Flr SF', 'Bsmt Half Bath',
         'Bsmt Full Bath', 'Half Bath', 'Full Bath'], axis=1)
 ```
 
@@ -1762,11 +1780,11 @@ cols_to_dummy = ['MS Zoning', 'Alley', 'Land Contour', 'Utilities', \
                 'Roof Matl', 'Exterior 1st', 'Mas Vnr Type', \
                 'Exter Qual', 'Exter Cond', 'Foundation', 'Bsmt Qual', \
                 'Bsmt Cond', 'Bsmt Exposure', 'BsmtFin Type 1', \
-                'BsmtFin Type 2', 'Heating', 'Heating QC', 'Electrical', \
-                'Kitchen Qual', 'Functional', 'Fireplace Qu', \
-                'Garage Type', 'Garage Finish', 'Garage Cond', \
-                'Paved Drive', 'Pool QC', 'Fence', 'Misc Feature', \
-                'Yr Sold', 'Sale Type', 'Built']
+                'BsmtFin Type 2', 'Heating', 'Heating QC' \
+                'Electrical', 'Kitchen Qual', 'Functional', \
+                'Fireplace Qu', 'Garage Type', 'Garage Finish', \
+                'Garage Cond', 'Paved Drive', 'Pool QC', 'Fence', \
+                'Misc Feature', 'Yr Sold', 'Sale Type', 'Built']
 ```
 
 
@@ -1809,10 +1827,14 @@ def make_dummies(df_training, df_testing, dummy_cols):
     for col in dummy_cols:
         lb.fit(df_training[col])
         columns = [str(col) + '_' + str(x) for x in lb.classes_]
-        transformed_set = pd.DataFrame(lb.transform(df_training[col]), columns = columns)
-        df_training = pd.concat([df_training.reset_index(drop=True), transformed_set], axis =1)
-        test_transformed_set = pd.DataFrame(lb.transform(df_testing[col]), columns = columns)
-        df_testing = pd.concat([df_testing.reset_index(drop=True), test_transformed_set], axis =1)
+        transformed_set = pd.DataFrame(lb.transform(df_training[col]),
+          columns = columns)
+        df_training = pd.concat([df_training.reset_index(drop=True), 
+          transformed_set], axis =1)
+        test_transformed_set = pd.DataFrame(lb.transform\
+          (df_testing[col]), columns = columns)
+        df_testing = pd.concat([df_testing.reset_index(drop=True), 
+          test_transformed_set], axis =1)
     df_training = df_training.drop(dummy_cols, axis =1)
     df_testing = df_testing.drop(dummy_cols, axis =1)
     return df_training, df_testing
@@ -1950,24 +1972,7 @@ print(cross_val_score(lasso_reg, X_test_regression, \
                       y_test_regression, cv=5).mean())
 ```
 
-    /Users/stephenhockey/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
-      ConvergenceWarning)
-    /Users/stephenhockey/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
-      ConvergenceWarning)
-    /Users/stephenhockey/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
-      ConvergenceWarning)
-
-
     0.410594788002
-
-
-    /Users/stephenhockey/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
-      ConvergenceWarning)
-    /Users/stephenhockey/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
-      ConvergenceWarning)
-    /Users/stephenhockey/anaconda3/lib/python3.6/site-packages/sklearn/linear_model/coordinate_descent.py:491: ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations. Fitting data with very small alpha may cause precision problems.
-      ConvergenceWarning)
-
 
 ### Ridge
 
@@ -2007,9 +2012,6 @@ log_reg.fit(X_train_regression, y_train_regression)
 print(cross_val_score(log_reg, X_test_regression, \
                       y_test_regression, cv=5).mean())
 ```
-
-    /Users/stephenhockey/anaconda3/lib/python3.6/site-packages/sklearn/model_selection/_split.py:605: Warning: The least populated class in y has only 1 members, which is too few. The minimum number of members in any class cannot be less than n_splits=5.
-      % (min_groups, self.n_splits)), Warning)
 
 
     0.0175376613577
@@ -2175,8 +2177,9 @@ print(cross_val_score(rfc, X_test_classification, \
 predicted = rfc.predict(X_test_classification)
 con_mat = confusion_matrix(y_test_classification, predicted)
 
-confusion = pd.DataFrame(con_mat, index=['not_abnormal', 'is_abormal'], \
-              columns=['predicted_not_abnormal', 'predicted_abnormal'])
+confusion = pd.DataFrame(con_mat, index=['not_abnormal', \
+    'is_abormal'], columns=['predicted_not_abnormal', \
+    'predicted_abnormal'])
 
 confusion
 ```
@@ -2242,8 +2245,9 @@ print(cross_val_score(gbc, X_test_classification, \
 predicted = gbc.predict(X_test_classification)
 con_mat = confusion_matrix(y_test_classification, predicted)
 
-confusion = pd.DataFrame(con_mat, index=['not_abnormal', 'is_abormal'], \
-              columns=['predicted_not_abnormal', 'predicted_abnormal'])
+confusion = pd.DataFrame(con_mat, index=['not_abnormal', \
+    'is_abormal'], columns=['predicted_not_abnormal', \
+    'predicted_abnormal'])
 
 confusion
 ```
@@ -2328,40 +2332,6 @@ print(cross_val_score(class_clf, X_test_classification, \
             y_test_classification, cv=5).mean())
 ```
 
-    Fitting 3 folds for each of 33 candidates, totalling 99 fits
-
-
-    [Parallel(n_jobs=-1)]: Done  34 tasks      | elapsed:    1.7s
-    [Parallel(n_jobs=-1)]: Done  99 out of  99 | elapsed:    4.2s finished
-
-
-    Fitting 3 folds for each of 33 candidates, totalling 99 fits
-
-
-    [Parallel(n_jobs=-1)]: Done  34 tasks      | elapsed:    1.5s
-    [Parallel(n_jobs=-1)]: Done  99 out of  99 | elapsed:    4.0s finished
-
-
-    Fitting 3 folds for each of 33 candidates, totalling 99 fits
-
-
-    [Parallel(n_jobs=-1)]: Done  34 tasks      | elapsed:    1.6s
-    [Parallel(n_jobs=-1)]: Done  99 out of  99 | elapsed:    4.1s finished
-
-
-    Fitting 3 folds for each of 33 candidates, totalling 99 fits
-
-
-    [Parallel(n_jobs=-1)]: Done  34 tasks      | elapsed:    1.6s
-    [Parallel(n_jobs=-1)]: Done  99 out of  99 | elapsed:    4.1s finished
-
-
-    Fitting 3 folds for each of 33 candidates, totalling 99 fits
-
-
-    [Parallel(n_jobs=-1)]: Done  34 tasks      | elapsed:    1.6s
-    [Parallel(n_jobs=-1)]: Done  99 out of  99 | elapsed:    4.1s finished
-
 
     0.938316286389
 
@@ -2371,8 +2341,9 @@ print(cross_val_score(class_clf, X_test_classification, \
 predicted = class_clf.predict(X_test_classification)
 con_mat = confusion_matrix(y_test_classification, predicted)
 
-confusion = pd.DataFrame(con_mat, index=['not_abnormal', 'is_abormal'], \
-              columns=['predicted_not_abnormal', 'predicted_abnormal'])
+confusion = pd.DataFrame(con_mat, index=['not_abnormal', \
+    'is_abormal'], columns=['predicted_not_abnormal', \
+    'predicted_abnormal'])
 
 confusion
 ```
@@ -2439,8 +2410,7 @@ plt.xlim([-0.05, 1.0])
 plt.ylim([-0.05, 1.05])
 plt.xlabel('False Positive Rate', fontsize=18)
 plt.ylabel('True Positive Rate', fontsize=18)
-plt.title('Receiver operating characteristic for abnormal sale prediction', 
-          fontsize=18)
+plt.title('Receiver operating characteristic for abnormal sale prediction', fontsize=18)
 plt.legend(loc="lower right")
 plt.show()
 ```
